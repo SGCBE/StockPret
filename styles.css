@@ -1,0 +1,312 @@
+.class-entete {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  margin: 2px;
+}
+ 
+.class-entete-logo {
+  height: 100px;
+  width: auto;
+}
+
+.class-entete-titre {
+  font-family: Arial, sans-serif;
+  font-size: 50px;
+  margin: 2px;
+}
+
+.class-pageprincipale {
+}
+
+.class-modal-authentification-container {
+  justify-content: space-between;
+  display: flex;
+}
+
+.class-pageprincipale-container {
+  margin: 0;
+  display: flex;
+}
+
+.class-modal-detailequipement-container {
+  margin: 1%;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.class-pageprincipale-container {
+  background-color: #F9E79F;
+  margin: 0;
+  justify-content: space-between;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
+
+.class-modal-ajouterequipement-container,
+.class-modal-modificationequipement-container,
+.class-modal-reservation-container {
+  margin: 0;
+  justify-content: space-between;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.class-pageprincipale-soustitre {
+  max-width: 100%;
+}
+
+.class-pageprincipale-filtre {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 10px ;
+}
+
+.class-modal-authentification-saisietexte {
+  margin: 1%;
+  padding: 10px;
+  flex: 1;
+  font-size: 18px;
+}
+
+.class-pageprincipale-saisieliste,
+.class-modal-authentification-saisietexte,
+.class-modal-ajouterequipement-saisieliste,
+.class-modal-ajouterequipement-saisietexte,
+.class-modal-modificationequipement-saisieliste,
+.class-modal-modificationequipement-saisietexte,
+.class-modal-reservation-saisietexte {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 1%;
+  padding: 0;
+  flex: 1;
+}
+
+.class-pageprincipale-tableau th {
+  font-family: Arial, sans-serif;
+  font-size : 20px;
+  font-weight: bold;
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.class-pageprincipale-tableau td {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.class-pageprincipale-bouton {
+  background-color: #00587C; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte */
+  font-size: 18px; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  padding: 10px 20px; /* Rembourrage (haut/bas gauche/droite) */
+  border: none; /* Supprimer la bordure */
+  border-radius: 4px; /* Bordure arrondie */
+  cursor: pointer; /* Curseur de la souris */
+  width: 100%;
+  margin-top : 1%;
+}
+
+.class-modal-authentification-bouton,
+.class-modal-ajouterequipement-bouton,
+.class-modal-detailequipement-bouton,
+.class-modal-modificationequipement-bouton,
+.class-modal-reservation-bouton {
+  background-color: #00587C; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte */
+  font-size: 18px; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  padding: 10px 20px; /* Rembourrage (haut/bas gauche/droite) */
+  border: none; /* Supprimer la bordure */
+  border-radius: 4px; /* Bordure arrondie */
+  cursor: pointer; /* Curseur de la souris */
+  width: 98%;
+  margin: 1%;
+}
+
+.class-modal-authentification,
+.class-modal-ajouterequipement,
+.class-modal-detailequipement,
+.class-modal-modificationequipement,
+.class-modal-reservation {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #00587C;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.class-modal-authentification-contenu,
+.class-modal-ajouterequipement-contenu,
+.class-modal-detailequipement-contenu,
+.class-modal-modificationequipement-contenu,
+.class-modal-reservation-contenu {
+  background-color: #fff;
+  padding: 0%;
+  margin: 1px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 2px solid #00587C;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+}
+
+.class-pageprincipale-containerbouton {
+}
+
+.class-entete-containerbouton,
+.class-modal-authentification-containerbouton,
+.class-modal-ajouterequipement-containerbouton,
+.class-modal-detailequipement-containerbouton,
+.class-modal-modificationequipement-containerbouton,
+.class-modal-reservation-containerbouton {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  margin-bottom: 1%;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #00587C;
+  color: white;
+}
+
+.class-pageprincipale-tableau {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout : auto;
+  margin: 0%;
+}
+
+/* Largeur dynamique pour la colonne "Catégorie" */
+.class-pageprincipale-tableau th:nth-child(1),
+.class-pageprincipale-tableau td:nth-child(1) {
+  width: auto;
+}
+
+/* Largeur dynamique pour la colonne "Quantité" */
+.class-pageprincipale-tableau th:nth-child(3),
+.class-pageprincipale-tableau td:nth-child(3) {
+  width: auto;
+}
+
+/* Largeur dynamique pour la colonne "Marque" */
+.class-pageprincipale-tableau th:nth-child(4),
+.class-pageprincipale-tableau td:nth-child(4) {
+  width: auto;
+}
+
+/* Largeur dynamique pour la colonne "Modèle" */
+.class-pageprincipale-tableau th:nth-child(5),
+.class-pageprincipale-tableau td:nth-child(5) {
+  width: auto;
+}
+
+/* Largeur dynamique pour la colonne "Dimensions" */
+.class-pageprincipale-tableau th:nth-child(6),
+.class-pageprincipale-tableau td:nth-child(6) {
+  width: auto;
+}
+
+/* Largeur dynamique pour la colonne "Prix d'achat HT" */
+.class-pageprincipale-tableau th:nth-child(7),
+.class-pageprincipale-tableau td:nth-child(7) {
+  width: auto;
+}
+
+label {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 1%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 1%;
+  padding: 1%;
+}
+
+/* Style pour les lignes d'équipement épuisées */
+.out-of-stock {
+  text-decoration: line-through; /* Ligne barrée */
+  color: #cdcdcd; /* Couleur de texte en gris clair */
+}
+
+/* Styles pour l'affichage sur smartphones */
+@media (max-width: 767px) {
+  .class-entete-titre {
+    font-size: 30px;
+  }
+  
+  .class-pageprincipale-container,
+  .class-modal-authentification-container,
+  .class-modal-detailequipement-container,
+  .class-modal-ajouterequipement-container,
+  .class-modal-modificationequipement-container,
+  .class-modal-reservation-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .class-pageprincipale-container {
+    font-size: 16px;
+  }
+  
+  .class-modal-authentification-saisietexte,
+  .class-pageprincipale-saisieliste,
+  .class-modal-authentification-bouton,
+  .class-modal-ajouterequipement-bouton,
+  .class-modal-detailequipement-bouton,
+  .class-modal-modificationequipement-bouton,
+  .class-modal-reservation-bouton {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+  
+  .class-pageprincipale-tableau th,
+  .class-pageprincipale-tableau td {
+    font-size: 16px;
+    padding: 6px;
+  }
+}
+
+.class-pageprincipale-tableau td.client-cell {
+  white-space: pre-line;
+}
