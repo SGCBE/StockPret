@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des équipements en prêt</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="class-entete">
+      <img src="logo.jpg" alt="Logo" class="class-entete-logo">
+      <h1>Gestion des équipements en prêt</h1>
+  </header>
+
+<main class="class-pageprincipale">
+    <h2>Liste des équipements</h2>
+    <div class="class-pageprincipale-container">
+      <label style="text-align: center;">Lorsque vous réservez un équipement et que la quantité arrive sur 0, ne pas le supprimer tant qu'il n'est pas installé/livré chez le client (mettre uniquement la quantité sur 0). Supprimer uniquement quand l'équipement est parti chez le client afin de garder une trace de celui-ci si jamais la réservation est annulée.</label>
+    </div>
+    <div class="class-pageprincipale-filtre">
+      <label for="categorie-filter">Filtrer par catégorie :</label>
+      <select id="categorie-filter" class="class-pageprincipale-saisieliste">
+        <option value="All">Tous</option>
+        <option value="Inox">Inox</option>
+        <option value="Préparation">Préparation</option>
+        <option value="Laverie">Laverie</option>
+        <option value="Cuisson">Cuisson</option>
+        <option value="Froid">Froid</option>
+      </select>
+    </div>
+    <table id="equipment-list" class="class-pageprincipale-tableau">
+      <thead>
+        <tr>
+          <th>Catégorie</th>
+          <th>Désignation</th>
+          <th>Quantité</th>
+          <th>Marque</th>
+          <th>Modèle</th>
+          <th>Dimensions</th>
+          <th>Client en prêt</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="class-pageprincipale-containerbouton">
+      <button id="bouton-pageprincipale-ajouterequipement" class="class-pageprincipale-bouton">Ajouter un équipement</button>
+    </div>
+</main>
+
+<div id="auth-modal" class="class-modal-authentification">
+  <div class="class-modal-authentification-contenu">
+    <h2>Authentification</h2>
+    <form id="auth-form">
+       <div class="class-modal-authentification-container">
+        <input class="class-modal-authentification-saisietexte" type="email" name="email-input" placeholder="Adresse email" required>
+       </div>
+       <div class="class-modal-authentification-container">
+        <input class="class-modal-authentification-saisietexte" type="password" name="password-input" placeholder="Mot de passe" required>
+       </div>
+      <div class="class-modal-authentification-containerbouton">
+        <button type="submit" class="class-modal-authentification-bouton">Connexion</button>
+        <button type="button" id="forgot-password-button" class="class-modal-authentification-bouton">Mot de passe oublié</button>
+        <button type="button" id="create-account-button" class="class-modal-authentification-bouton">Créer un compte</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="add-equipment-modal" class="class-modal-ajouterequipement">
+  <div class="class-modal-ajouterequipement-contenu">
+    <h2>Ajouter un équipement</h2>
+    <form id="add-equipment-form">
+      <div class="class-modal-ajouterequipement-container">
+        <label for="categorie-input">Catégorie :</label>
+        <select id="categorie-input" class="class-modal-ajouterequipement-saisieliste">
+          <option value="Inox">Inox</option>
+          <option value="Préparation">Préparation</option>
+          <option value="Laverie">Laverie</option>
+          <option value="Cuisson">Cuisson</option>
+          <option value="Froid">Froid</option>
+        </select>
+      </div>
+      <div class="class-modal-ajouterequipement-container">
+        <label for="designation-input">Désignation :</label>
+        <input type="text" id="designation-input" class="class-modal-ajouterequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-ajouterequipement-container">
+        <label for="quantite-input">Quantité :</label>
+        <input type="number" id="quantite-input" class="class-modal-ajouterequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-ajouterequipement-container">
+        <label for="marque-input">Marque :</label>
+        <input type="text" id="marque-input" class="class-modal-ajouterequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-ajouterequipement-container">
+        <label for="modele-input">Modèle :</label>
+        <input type="text" id="modele-input" class="class-modal-ajouterequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-ajouterequipement-container">
+        <label for="dimensions-input">Dimensions :</label>
+        <input type="text" id="dimensions-input" class="class-modal-ajouterequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-ajouterequipement-container">
+        <label for="client-input">Client :</label>
+        <input type="textarea" id="client-input" class="class-modal-ajouterequipement-saisietexte">
+      </div>
+      <div class="class-modal-ajouterequipement-containerbouton">
+        <button id="bouton-ajouterequipement-ajouter" class="class-modal-ajouterequipement-bouton">Ajouter</button>
+        <button id="bouton-ajouterequipement-fermer" class="class-modal-ajouterequipement-bouton">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="equipment-detail-modal" class="class-modal-detailequipement">
+  <div class="class-modal-detailequipement-contenu">
+    <h2>Détail de l'équipement</h2>
+     <div class="class-modal-detailequipement-container">
+      <strong>Catégorie :</strong> <span id="equipment-detail-categorie" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-container">
+      <strong>Désignation :</strong> <span id="equipment-detail-designation" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-container">
+      <strong>Quantité :</strong> <span id="equipment-detail-quantite" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-container">
+      <strong>Marque :</strong> <span id="equipment-detail-marque" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-container">
+      <strong>Modèle :</strong> <span id="equipment-detail-modele" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-container">
+      <strong>Dimensions :</strong> <span id="equipment-detail-dimensions" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-container">
+      <strong>Client :</strong> <span id="equipment-detail-client" style="margin-left: 1%"></span>
+     </div>
+     <div class="class-modal-detailequipement-containerbouton">
+      <button id="bouton-detailequipement-modifier" class="class-modal-detailequipement-bouton" data-key="">Modifier</button>
+      <button id="bouton-detailequipement-supprimer" class="class-modal-detailequipement-bouton">Supprimer</button>
+      <button id="bouton-detailequipement-fermer" class="class-modal-detailequipement-bouton">Fermer</button>
+     </div>
+  </div>
+</div>
+
+<div id="edit-equipment-modal" class="class-modal-modificationequipement">
+  <div class="class-modal-modificationequipement-contenu">
+    <h2>Modifier un équipement</h2>
+    <form id="edit-equipment-form">
+      <div class="class-modal-modificationequipement-container">
+        <label for="edit-equipment-categorie">Catégorie :</label>
+        <select id="edit-equipment-categorie" class="class-modal-modificationequipement-saisieliste" >
+          <option value="Inox">Inox</option>
+          <option value="Préparation">Préparation</option>
+          <option value="Laverie">Laverie</option>
+          <option value="Cuisson">Cuisson</option>
+          <option value="Froid">Froid</option>
+        </select>
+      </div>
+      <div class="class-modal-modificationequipement-container">
+        <label for="designation-input">Désignation :</label>
+        <input type="text" id="edit-equipment-designation" class="class-modal-modificationequipement-saisietexte" required> 
+      </div>
+      <div class="class-modal-modificationequipement-container">
+        <label for="quantite-input">Quantité :</label>
+        <input type="number" id="edit-equipment-quantite" class="class-modal-modificationequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-modificationequipement-container">
+        <label for="marque-input">Marque :</label>
+        <input type="text" id="edit-equipment-marque" class="class-modal-modificationequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-modificationequipement-container">
+        <label for="modele-input">Modèle :</label>
+        <input type="text" id="edit-equipment-modele" class="class-modal-modificationequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-modificationequipement-container">
+        <label for="dimensions-input">Dimensions :</label>
+        <input type="text" id="edit-equipment-dimensions" class="class-modal-modificationequipement-saisietexte" required>
+      </div>
+      <div class="class-modal-modificationequipement-container">
+        <label for="client-input">Client :</label>
+        <textarea id="edit-equipment-client" class="class-modal-modificationequipement-saisietexte"></textarea>
+      </div>
+    <div class="class-modal-modificationequipement-containerbouton">
+      <button id="bouton-modificationequipement-enregistrer" class="class-modal-modificationequipement-bouton">Enregistrer modification</button>
+      <button id="bouton-modificationequipement-fermer" class="class-modal-modificationequipement-bouton">Annuler</button>
+    </div>
+  </form>
+</div>
+</div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
