@@ -123,6 +123,10 @@ function displayEquipmentsPret(equipmentsPret) {
 
   equipmentsPret.forEach(function (equipment) {
     var row = document.createElement("tr");
+
+    // Ajouter la classe de catégorie à la ligne
+    row.className = "class-cat-" + equipment.categorie.toLowerCase();
+    
     row.innerHTML = `
       <td>${equipment.categorie}</td>
       <td>${equipment.designation}</td>
