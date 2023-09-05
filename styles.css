@@ -46,6 +46,7 @@
   align-items: center;
   justify-content: center;
   font-style: italic;
+  max-width: 100%;
 }
 
 .class-modal-ajouterequipement-container,
@@ -109,7 +110,7 @@
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .class-pageprincipale-bouton {
@@ -207,6 +208,10 @@ h2 {
   color: white;
 }
 
+.class-pageprincipale-tableau td:last-child::after {
+  content: " €"; /* Ajouter le symbole € à la fin */
+}
+
 .class-pageprincipale-tableau {
   width: 100%;
   border-collapse: collapse;
@@ -269,6 +274,31 @@ body {
   color: #cdcdcd; /* Couleur de texte en gris clair */
 }
 
+/* Catégorie Cuisson - Rouge pastel */
+.class-cat-cuisson {
+  background-color: #ffb3ba;
+}
+
+/* Catégorie Froid - Froid pastel */
+.class-cat-froid {
+  background-color: #b2fefa;
+}
+
+/* Catégorie Inox - Gris pastel */
+.class-cat-inox {
+  background-color: #e6e6e6;
+}
+
+/* Catégorie Laverie - Vert pastel */
+.class-cat-laverie {
+  background-color: #c3e6cb;
+}
+
+/* Catégorie Préparation - Jaune pastel */
+.class-cat-préparation {
+  background-color: #ffe08c;
+}
+
 /* Styles pour l'affichage sur smartphones */
 @media (max-width: 767px) {
   .class-entete-titre {
@@ -305,8 +335,4 @@ body {
     font-size: 16px;
     padding: 6px;
   }
-}
-
-.class-pageprincipale-tableau td.client-cell {
-  white-space: pre-line;
 }
